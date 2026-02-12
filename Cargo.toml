@@ -1,0 +1,31 @@
+[profile.release]
+opt-level = 0
+debug = true
+strip = false
+lto = false
+
+[package]
+name = "cave"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+clack-plugin = { git = "https://github.com/prokopyl/clack.git" }
+clack-extensions = { git = "https://github.com/prokopyl/clack.git", features = [
+  "clack-plugin",
+  "audio-ports",
+  "note-ports",
+  "params",
+  "gui",
+  "raw-window-handle_05",
+] }
+
+atomic_float = "1"
+
+raw-window-handle = "0.5.2"
+
+egui-baseview = { git = "https://codeberg.org/BillyDM/egui-baseview.git" }
+baseview = { git = "https://github.com/RustAudio/baseview.git", rev = "237d323c729f3aa99476ba3efa50129c5e86cad3" }
